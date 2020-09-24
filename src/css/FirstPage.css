@@ -4,22 +4,38 @@
 }
 
 .firstpage__contentLeft{
-    background-color: yellow;
+    background-color: #71C9F8;
     width: 50%;
     height: 95vh;
+    overflow: hidden;
 }
 .firstpage__contentRight{
-    background-color: blue;
+    background-color: white;
     width: 50%;
     height: 95vh;
 }
 .firstpage__footer{
-    z-index: 5;
-    background-color: red;
+    align-items: center;
+    margin-left: 20vh;
+    margin-right: 20vh;
+}
+.firstpage__footerData{
+    font-size: small;
     height: 5vh; 
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(1rem,1fr)); ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.firstpage__footerData > a {
+    text-decoration: none;
+    color: lightslategray;
 }
 .firstpage__contentLeftTwitterLogo{
-   
-    height:200% ;
-    padding: 0;
+    
+    height:130% ;
+    text-align: center;
+    display: block;
+    margin-top: -134px;
 }

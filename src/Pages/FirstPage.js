@@ -7,7 +7,6 @@ function FirstPage() {
         <div className="firstpage">
            <div className="firstpage__content">
                 <div className="firstpage__contentLeft">
-                        <h1>LEFT</h1>
                         <img src={twitterlogo} className="firstpage__contentLeftTwitterLogo" alt="Twiter Logo" /> 
                 </div>
                 <div className="firstpage__contentRight">
@@ -15,7 +14,29 @@ function FirstPage() {
                 </div>
            </div>
            <div className="firstpage__footer">
-                        <h1>FOOTER</h1>
+               <div className="firstpage__footerData">
+
+                        <a href="#">About</a>
+                        <a href="#">Help Center</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy policy</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Ads info</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Status</a>
+                        <a href="#">Jobs</a>
+                        <a href="#">Brand</a>
+                        <a href="#">Advertise</a>
+                        <a href="#">Marketing</a>
+                        <a href="#">Business</a>
+                        <a href="#">Developers</a>
+                        <a href="#">Directory</a>
+                        <a href="#">Settings</a>
+                        <p>© 2020 Twitter Clone, Inc.</p>
+               </div>
+                        
+                        
+
            </div>
         </div>
     )
