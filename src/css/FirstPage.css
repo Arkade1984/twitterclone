@@ -1,0 +1,25 @@
+.firstpage__content{
+    display: flex;
+    flex-direction: row;
+}
+
+.firstpage__contentLeft{
+    background-color: yellow;
+    width: 50%;
+    height: 95vh;
+}
+.firstpage__contentRight{
+    background-color: blue;
+    width: 50%;
+    height: 95vh;
+}
+.firstpage__footer{
+    z-index: 5;
+    background-color: red;
+    height: 5vh; 
+}
+.firstpage__contentLeftTwitterLogo{
+   
+    height:200% ;
+    padding: 0;
+}
