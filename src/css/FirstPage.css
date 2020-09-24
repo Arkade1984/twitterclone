@@ -9,21 +9,121 @@
     height: 95vh;
     overflow: hidden;
 }
+.firstpage__contentLeftData{
+
+    top: 35%;
+    left: 15%;
+    position: absolute;
+    width: 50%;
+    color: #fff;
+    overflow: hidden;
+    font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
+}
+.firstpage__contentDataLine{
+    display: flex;
+    justify-content: start;
+    margin: 30px;
+}
+.firstpage__contentDataLine > .MuiSvgIcon-root{
+  margin-right: 10px;
+}
+    
+
 .firstpage__contentRight{
     background-color: white;
     width: 50%;
     height: 95vh;
 }
+.firstpage__contentRightData{
+
+    /* border: 1px solid red; */
+    max-width: 600px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    
+}
+
+.firstpage__contentRightLogin{
+    display: flex;
+    justify-content: space-between;
+}
+.firstpage__contentRightLogin > input{
+    height: 50px;
+    background-color: #F5F8FA;
+    border: none;
+    border-bottom: 2px solid black;
+}
+.firstpage__contentRightLogin > button{
+   background-color: white;
+   color: #1DA1F5;
+   border-color: #1DA1F5 !important;
+   
+   font-weight: 800;
+    height: 50px;
+    width: 100px;
+  
+      /* Rounded border */
+      border-radius: 9999px;
+  
+      /* Spacing */
+      padding: 4px 8px;
+}
+.firstpage__contentRghtForgotPassword{
+    color: #1DA1F5;
+    font-size: small;
+    margin-left: 42%;
+}
+.firstpage__contentRightDataa{
+    margin-top: 30%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.firstpage__contentDataButtons{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    margin-top: 10px;
+    border-radius: 9999px;
+    border: none;
+}
+.signup{
+    background-color: #1DA1F5;
+    color: white;
+    height: 35px;
+    font-weight: 800;
+
+}
+.signup:hover{
+
+    background-color: #1A91DA;
+}
+.login:hover{
+
+    background-color: #E8F5FE;
+}
+.login{
+    border: 1px solid #1A91DA;
+    height: 35px;
+    color: #1A91DA;
+    font-weight: 800;
+}
 .firstpage__footer{
     align-items: center;
-    margin-left: 20vh;
+    margin-left: 30vh;
     margin-right: 20vh;
 }
 .firstpage__footerData{
     font-size: small;
     height: 5vh; 
     display: grid;
-    grid-template-columns:repeat(auto-fit,minmax(1rem,1fr)); ;
+    grid-template-columns:repeat(auto-fit,minmax(5rem,1fr)); ;
     justify-content: space-between;
     align-items: center;
 }
@@ -33,9 +133,11 @@
     color: lightslategray;
 }
 .firstpage__contentLeftTwitterLogo{
-    
     height:130% ;
-    text-align: center;
-    display: block;
     margin-top: -134px;
+}
+.firstpage__contentRightDataa>img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
