@@ -1,12 +1,30 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import '../css/FirstPage.css'
 import twitterlogo from '../assets/twitterlogo.svg'
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import { useHistory } from 'react-router-dom'
+
+
 function FirstPage() {
+
+    const history=useHistory();
+    const [state,setState]= useState(false)
+    useEffect(() => {
+        document.title = "Twitter Clone | Akarsh"
+     }, []);
+
+        const login=(e)=>{
+            e.preventDefault();
+            history.push('/login')
+            
+        }
+    
+
     return (
         <div className="firstpage">
+             
            <div className="firstpage__content">
                 <div className="firstpage__contentLeft">
                         <div className="firstpage__contentLeftData">
@@ -34,8 +52,8 @@ function FirstPage() {
                                <h1>world right now</h1>
                                <div className="firstpage__contentDataButtons">
                                     <h3>Join Twitter today</h3>
-                                    <button className="btn signup">Sign up</button>
-                                    <button className="btn login">Log in</button>
+                                    <button className="btn signup" >Sign up</button>
+                                    <button className="btn login" onClick={login}>Log in</button>
                                 </div>
                            </div>
                           

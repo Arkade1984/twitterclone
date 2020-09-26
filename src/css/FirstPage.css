@@ -141,3 +141,20 @@
     height: 50px;
     object-fit: contain;
 }
+@media screen and (max-width: 1000px){
+
+    .firstpage__contentRightLogin{
+        display: none;
+    }
+    .firstpage__contentRghtForgotPassword{
+        display: none;
+    }
+}
+@media screen and (max-width: 800px){
+
+    .firstpage__content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+}
