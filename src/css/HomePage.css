@@ -21,14 +21,17 @@
     height: 25px;
     align-self: start;
 }
+.homepage__leftNav{
+    width: fit-content;
+}
 .homepage__leftNavBar{
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 10px;
     height: 35px;
-    width: fit-content;
+    padding: 10px;
     border-radius: 9999px;
 
 
