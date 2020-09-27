@@ -3,11 +3,49 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {createStore} from 'redux';
+import allReducer from './services/reducers'
+import {Provider} from 'react-redux'
+
+
+
+function saveToLocalStorage(state){
+  try{
+    const serializedState=JSON.stringify(state);
+    localStorage.setItem('state',serializedState)
+
+  }catch(e){
+    console.error(e)
+  }
+}
+
+function loadFromLocalStorage(){
+  try{
+    const serializedState=localStorage.getItem('state');
+    if(serializedState===null) return undefined;
+    return JSON.parse(serializedState)
+  }
+  catch(error){
+    console.error(error)
+    return undefined
+  }
+}
+const persistedState=loadFromLocalStorage();
+
+const store= createStore(
+  allReducer,
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+store.subscribe(()=>saveToLocalStorage(store.getState()));
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
