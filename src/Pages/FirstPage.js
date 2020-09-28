@@ -55,19 +55,19 @@ function FirstPage() {
                      <h1>Create Your Account</h1>
                      <div className="signupcontent">
                         <lable>Name</lable>
-                        <input type="text" value={name} onChange={setname(e.target.value)}/>
+                        <input type="text" value={name} onChange={e=>setname(e.target.value)}/>
                      </div>
                      <div className="signupcontent">
                         <lable>Phone Number</lable>
-                        <input type="number" value={phoneNumber} onChange={setphoneNumber(e.target.value)}/>
+                        <input type="number" value={phoneNumber} onChange={e=>setphoneNumber(e.target.value)}/>
                      </div>
                      <div className="signupcontent">
                         <lable>Email</lable>
-                        <input type="email" value={email} onChange={setemail(e.target.value)}/>
+                        <input type="email" value={email} onChange={e=>setemail(e.target.value)}/>
                      </div>
                      <div className="signupcontent">
                         <lable>Password</lable>
-                        <input type="password" value={password} onChange={setpassword(e.target.value)}/>
+                        <input type="password" value={password} onChange={e=>setpassword(e.target.value)}/>
                      </div>
                     
                      <button className="btn signup" onClick={register}>Create</button>

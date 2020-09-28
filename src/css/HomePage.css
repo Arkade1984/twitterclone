@@ -56,8 +56,6 @@ color: #fff;
 }
 .homepage__middle{
     height: 100vh;
-    border: 1px solid yellow;
-    background-color: yellow;
     width: 40%;
 
 }
@@ -85,6 +83,7 @@ color: #fff;
 }
 .modal__contentNav{
     margin: 20px;
+    cursor: pointer;
 }
 .modalTwo{
     width: fit-content;

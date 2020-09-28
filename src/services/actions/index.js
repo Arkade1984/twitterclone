@@ -5,3 +5,11 @@ export const addColor=(data)=>{
         data:data
     };
 };
+
+export const addHoverColor=(data)=>{
+
+    return {
+        type:"SET_HOVER_COLOR",
+        data:data
+    };
+};
