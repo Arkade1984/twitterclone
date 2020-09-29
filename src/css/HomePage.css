@@ -8,8 +8,14 @@
     height: 100vh;
     width: 30%;
     padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
-    
+}
+.homepage__left > button{
+    height: 35px;
+    margin-bottom: 3%;
 }
 .homepage__leftData{
     margin-left: 50%;

@@ -23,12 +23,17 @@ import {useDispatch} from 'react-redux'
 import {addColor} from '../services/actions';
 import {addHoverColor} from '../services/actions';
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom'
+
+import db from '../utility/firebase.js';
+
 
 function HomePage() {
 
 
     const  colorReducer=useSelector(state=>state.colorReducer);
     const  colorHoverReducer=useSelector(state=>state.colorHoverReducer);
+    const history=useHistory();
 
     const dispatch=useDispatch();
     useEffect(() => {
@@ -38,6 +43,17 @@ function HomePage() {
         document.title = "Home / Twitter"
      }, []);
 
+     const logout=(e)=>{
+         e.preventDefault();
+         db.auth().signOut().then((e)=>{
+
+            history.push("/")
+         }).catch((error)=>{
+             if(error){
+                 alert(error.message)
+             }
+         })
+     }
      const [color, setcolor] = useState('#1DA1F5')
      const [hovercolor, sethovercolor] = useState('')
      const [open, setOpen] = useState(false);
@@ -150,6 +166,12 @@ function HomePage() {
             e.preventDefault();
 
         }
+        
+        const [id, setid] = useState(1)
+        function setIdFunction(e){
+           
+            setid(e)
+        }
           /**
      * GREEN TEXT #17BF63 hover #E7F9EF
      * orange text #F45D22  hover #FEEEE8
@@ -173,16 +195,17 @@ function HomePage() {
 
                     <img src={twitterlogo}   className="homepage_leftLogo" alt="Twiter Logo" /> 
                     
-                    <div className="homepage__leftNav"><div  className="homepage__leftNavBar"><HomeRoundedIcon/><span>Home  </span></div>                        </div>
-                    <div className="homepage__leftNav"><div className="homepage__leftNavBar"><ExplicitRoundedIcon/><span>Explore  </span></div>                  </div>
-                    <div className="homepage__leftNav"><div  className="homepage__leftNavBar"><NotificationsRoundedIcon/><span>Notification</span></div>         </div>
-                    <div className="homepage__leftNav"><div className="homepage__leftNavBar"><ChatBubbleRoundedIcon/><span>Messages</span></div>                  </div>
-                    <div className="homepage__leftNav"><div className="homepage__leftNavBar"><BookmarkBorderRoundedIcon/><span>Bookmarks</span></div>             </div>
-                    <div className="homepage__leftNav"><div className="homepage__leftNavBar"><ListAltRoundedIcon/><span>Lists</span></div>                        </div>
-                    <div className="homepage__leftNav"><div className="homepage__leftNavBar"><PersonOutlineRoundedIcon/><span>Profile</span></div>                </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`1`)}><div  className="homepage__leftNavBar"><HomeRoundedIcon/><span>Home  </span></div>                        </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`2`)}><div className="homepage__leftNavBar"><ExplicitRoundedIcon/><span>Explore  </span></div>                  </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`3`)}><div  className="homepage__leftNavBar"><NotificationsRoundedIcon/><span>Notification</span></div>         </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`4`)}><div className="homepage__leftNavBar"><ChatBubbleRoundedIcon/><span>Messages</span></div>                  </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`5`)}><div className="homepage__leftNavBar"><BookmarkBorderRoundedIcon/><span>Bookmarks</span></div>             </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`6`)}><div className="homepage__leftNavBar"><ListAltRoundedIcon/><span>Lists</span></div>                        </div>
+                    <div className="homepage__leftNav"  onClick={()=>setIdFunction(`7`)}><div className="homepage__leftNavBar"><PersonOutlineRoundedIcon/><span>Profile</span></div>                </div>
                     <div className="homepage__leftNav"  onClick={openModal}><div className="homepage__leftNavBar" ><MoreHorizRoundedIcon/><span>More</span></div> </div>
                     <button style={inputStyle}><TwitterIcon/><span>Tweet</span></button>
                 </div>
+                <button onClick={logout}>LOGOUT</button>
 
             </div>
             <div className="homepage__middle">
@@ -222,9 +245,16 @@ function HomePage() {
                 </div>
 
                 </Modal>
+                {
+                    id==1?<Main/>:
+                    id==2?<h1>Explore</h1>:
+                    id==3?<h1>Notification</h1>:
+                    id==4?<h1>Messages</h1>:
+                    id==5?<h1>Bookmarks</h1>:
+                    id==6?<h1>Lists</h1>:
+                    id==7?<h1>Profile</h1>:null
+                }
                 
-
-                <Main/>
             </div>
             <div className="homepage__right">
                RIGHT

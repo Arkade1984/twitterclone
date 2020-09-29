@@ -17,6 +17,9 @@ function FirstPage() {
     const [modalIsOpen,setIsOpen] = useState(false);
     const dispatch=useDispatch();
 
+    const [emailLogin, setemaillogin] = useState('')
+    const [passwordLogin, setpasswordlogin] = useState('')
+
     const [name, setname] = useState('')
     const [phoneNumber, setphoneNumber] = useState('')
     const [email, setemail] = useState('')
@@ -46,9 +49,41 @@ function FirstPage() {
             
         }
     
+        const loginButton=(e)=>{
+            e.preventDefault();
+            db.auth().signInWithEmailAndPassword(emailLogin,passwordLogin).then((e)=>{
+                history.push("/home")
+            }).catch((error)=>{
+                if(error){
+                    alert(error.message)
+                }
+            })
+        }
         const register=(e)=>{
             e.preventDefault();
-           
+            db.auth().createUserWithEmailAndPassword(email,password).then((e)=>{
+                e.user.updateProfile({
+                    displayName: name
+                });
+                db.database().ref("Twitter").child("UserDetails").push().set({
+                    "Name":name,
+                    "MobileNumber":phoneNumber,
+                    "Email":email,
+                    "Password":password
+                },function(error){
+                    if(error){
+                        alert(error.message)
+                    }
+                    else{
+                        history.push("/home")
+                    }
+                })
+
+            }).catch((error)=>{
+                    if(error){
+                        alert(error.message)
+                    }
+            })
 
         }
 
@@ -100,9 +135,9 @@ function FirstPage() {
                 <div className="firstpage__contentRight">
                        <div className="firstpage__contentRightData">
                            <div className="firstpage__contentRightLogin">
-                               <input type="text" placeholder="Phone number email or username"/>
-                               <input type="password" placeholder="Password"/>
-                               <button>Log In</button>
+                               <input type="text" value={emailLogin} onChange={e=>setemaillogin(e.target.value)} placeholder="Phone number email or username" />
+                               <input type="password" value={passwordLogin} onChange={e=>setpasswordlogin(e.target.value)} placeholder="Password"/>
+                               <button onClick={loginButton}>Log In</button>
                                
                            </div>
                            <div className="firstpage__contentRghtForgotPassword">
