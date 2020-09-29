@@ -1,0 +1,41 @@
+.tweetComponent{
+    border: 0.1px solid lightgray ;
+    height: fit-content;
+    padding: 1%;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+   
+}
+.content > img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-top: 1%;
+}
+.content__header{
+    display: flex;
+    flex-direction: row;
+}
+.content__header > p{
+   color: gray;
+}
+.content__Data{
+    padding: 1%;
+}
+.content__actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2%;
+}
+.content__actions > .MuiSvgIcon-root{
+    padding: 5px;
+    border-radius: 9999px;
+}
+.content__actions > .MuiSvgIcon-root:hover {
+    cursor: pointer;
+    background-color: #E8F5FE;
+    color:#1DA1F5 ;
+}

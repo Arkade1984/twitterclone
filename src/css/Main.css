@@ -5,6 +5,9 @@
     background-color: white;
     border: 0.01px solid lightgrey;
 }
+.main__contentTweet{
+    border: 0.1px solid lightgrey;
+}
 .main__contentTextArea{
     display: flex;
     flex-direction: row;
@@ -32,4 +35,59 @@
 }
 .main__contentEveryOneCanReplyBaap{
     padding-left: 40px;
+}
+.main__contentEmoji{
+    justify-content: space-between;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+.main__contentEmoji > .MuiSvgIcon-root{
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 9999px;
+
+
+}
+.main__contentEmoji > .MuiSvgIcon-root:hover {
+    cursor: pointer;
+    background-color: #E8F5FE;
+}
+.main__contentEmoji:hover{
+    justify-content: space-between;
+
+}
+.main__contentThirdLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
+.main__contentThirdLine >button{
+    padding: 10px;
+    margin-top: 20px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 9999px;
+    border: none;
+    background-color: #1DA1F5;
+    font-weight: 800;
+    color: #fff;
+}
+.main__contentTweets{
+    overflow: scroll;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.main__contentTweets::-webkit-scrollbar {
+ display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main__contentTweets {
+ -ms-overflow-style: none;  /* IE and Edge */
+ scrollbar-width: none;  /* Firefox */
 }

@@ -22,11 +22,19 @@ import Main from './Main';
 import {useDispatch} from 'react-redux'
 import {addColor} from '../services/actions';
 import {addHoverColor} from '../services/actions';
+import {useSelector} from 'react-redux';
 
 function HomePage() {
 
+
+    const  colorReducer=useSelector(state=>state.colorReducer);
+    const  colorHoverReducer=useSelector(state=>state.colorHoverReducer);
+
     const dispatch=useDispatch();
     useEffect(() => {
+
+        setcolor(colorReducer)
+        sethovercolor(colorHoverReducer)
         document.title = "Home / Twitter"
      }, []);
 
@@ -138,6 +146,10 @@ function HomePage() {
         function closeModalTwo(){
             setIsOpenTwo(false);
         }
+        const darkmode=(e)=>{
+            e.preventDefault();
+
+        }
           /**
      * GREEN TEXT #17BF63 hover #E7F9EF
      * orange text #F45D22  hover #FEEEE8
@@ -150,6 +162,7 @@ function HomePage() {
       
         <div className="homepage">
               <style dangerouslySetInnerHTML={{__html: `
+
                     .homepage__leftNavBar:hover{
                         background-color: ${hovercolor};
                         color:${color}
@@ -203,6 +216,9 @@ function HomePage() {
                     <button className="modalTwo__contentNav" onClick={()=>changecolor(`PINK`)}>PINK</button>
                     <button className="modalTwo__contentNav" onClick={()=>changecolor(`YELLOW`)}>YELLOW</button>
                     <button className="modalTwo__contentNav" onClick={()=>changecolor(`BLUE`)}>BLUE</button>                   
+                </div>
+                <div className="enbleDarkMode">
+                    <button onClick={darkmode}>DARK MODE</button>
                 </div>
 
                 </Modal>

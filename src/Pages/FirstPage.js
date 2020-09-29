@@ -8,9 +8,14 @@ import { useHistory } from 'react-router-dom'
 import Modal from 'react-modal';
 import db from '../utility/firebase.js';
 
+import {useDispatch} from 'react-redux'
+import {addColor} from '../services/actions';
+import {addHoverColor} from '../services/actions';
+
 function FirstPage() {
 
     const [modalIsOpen,setIsOpen] = useState(false);
+    const dispatch=useDispatch();
 
     const [name, setname] = useState('')
     const [phoneNumber, setphoneNumber] = useState('')
@@ -27,6 +32,12 @@ function FirstPage() {
     const [state,setState]= useState(false)
     useEffect(() => {
         document.title = "Twitter Clone | Akarsh"
+        dispatch(
+            addColor("#1DA1F5")
+            )
+            dispatch(
+                addHoverColor("#E7F9EF")
+            )
      }, []);
 
         const login=(e)=>{
@@ -37,7 +48,7 @@ function FirstPage() {
     
         const register=(e)=>{
             e.preventDefault();
-            //db.auth().signInWithEmailAndPassword().
+           
 
         }
 
